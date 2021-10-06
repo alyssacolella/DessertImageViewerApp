@@ -18,8 +18,6 @@ class DisplayActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         val resId: Int = bundle!!.getInt("dessertImage")
 
-        //val dessertImg = intent.getInt("dessertImage")
-
         findViewById<TextView>(R.id.textView).text = dessertText
         findViewById<ImageView>(R.id.imageView).setImageResource(resId)
     }

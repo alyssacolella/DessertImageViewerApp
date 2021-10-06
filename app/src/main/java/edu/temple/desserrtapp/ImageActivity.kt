@@ -3,10 +3,7 @@ package edu.temple.desserrtapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,8 +18,6 @@ class ImageActivity : AppCompatActivity() {
         val items = generateTestData()
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        val imageView = findViewById<ImageView>(R.id.imageView)
-        val textView = findViewById<TextView>(R.id.textView)
 
         recyclerView.layoutManager = GridLayoutManager(this, 3)
 
@@ -32,8 +27,6 @@ class ImageActivity : AppCompatActivity() {
         // to have access to the activity's members
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
-            //imageView.setImageResource(items[itemPosition].resourceId)
-            //textView.text = items[itemPosition].description
 
             val intent = Intent(this, DisplayActivity::class.java)
             intent.putExtra("dessertName", items[itemPosition].description)
