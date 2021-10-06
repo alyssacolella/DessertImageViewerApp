@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="edu.temple.desserrtapp.ImageActivity"
+            android:name=".DisplayActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ImageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
