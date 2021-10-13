@@ -11,7 +11,7 @@ class DisplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
-        supportActionBar?.title = "Dessert Display"
+        supportActionBar?.title = getString(R.string.displayTitle)
 
         val dessertText = intent.getStringExtra("dessertName")
 

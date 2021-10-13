@@ -13,7 +13,7 @@ class ImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "Dessert Selection"
+        supportActionBar?.title = getString(R.string.selectorTitle)
 
         val items = generateTestData()
 
@@ -40,17 +40,18 @@ class ImageActivity : AppCompatActivity() {
 
     // Test data
     fun generateTestData(): Array<Item> {
-        return arrayOf(Item(R.drawable.ccf_original, "Original")
-            , Item(R.drawable.ccf_freshstrawberry,"Fresh Strawberry")
-            , Item(R.drawable.ccf_chocolatecaramelicious,"Chocolate Caramelicious Cheesecake ")
-            , Item(R.drawable.ccf_pineappleupsidedown,"Pineapple Upside-Down")
-            , Item(R.drawable.ccf_celebration,"Celebration")
-            , Item(R.drawable.ccf_caramelapple,"Caramel Apple")
-            , Item(R.drawable.ccf_verycherryghirardellichocolate,"Very Cherry Ghirardelli® Chocolate")
-            , Item(R.drawable.ccf_lowlicious,"Low-Licious")
-            , Item(R.drawable.ccf_cinnaboncinnamoncwirl,"Cinnabon® Cinnamon Swirl")
-            , Item(R.drawable.ccf_godiva,"Godiva® Chocolate")
-            , Item(R.drawable.ccf_coconutcreampie,"Coconut Cream Pie")
-            , Item(R.drawable.ccf_saltedcaramel,"Salted Caramel"))
+        val desserts = resources.getStringArray(R.array.dessert_names)
+        return arrayOf(Item(R.drawable.ccf_original, desserts[0])
+            , Item(R.drawable.ccf_freshstrawberry,desserts[1])
+            , Item(R.drawable.ccf_chocolatecaramelicious,desserts[2])
+            , Item(R.drawable.ccf_pineappleupsidedown,desserts[3])
+            , Item(R.drawable.ccf_celebration,desserts[4])
+            , Item(R.drawable.ccf_caramelapple,desserts[5])
+            , Item(R.drawable.ccf_verycherryghirardellichocolate,desserts[6])
+            , Item(R.drawable.ccf_lowlicious,desserts[7])
+            , Item(R.drawable.ccf_cinnaboncinnamoncwirl,desserts[8])
+            , Item(R.drawable.ccf_godiva,desserts[9])
+            , Item(R.drawable.ccf_coconutcreampie,desserts[10])
+            , Item(R.drawable.ccf_saltedcaramel,desserts[11]))
     }
 }
