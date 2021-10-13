@@ -3,6 +3,7 @@ package edu.temple.desserrtapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,17 +42,18 @@ class ImageActivity : AppCompatActivity() {
     // Test data
     fun generateTestData(): Array<Item> {
         val desserts = resources.getStringArray(R.array.dessert_names)
-        return arrayOf(Item(R.drawable.ccf_original, desserts[0])
-            , Item(R.drawable.ccf_freshstrawberry,desserts[1])
-            , Item(R.drawable.ccf_chocolatecaramelicious,desserts[2])
-            , Item(R.drawable.ccf_pineappleupsidedown,desserts[3])
-            , Item(R.drawable.ccf_celebration,desserts[4])
-            , Item(R.drawable.ccf_caramelapple,desserts[5])
-            , Item(R.drawable.ccf_verycherryghirardellichocolate,desserts[6])
-            , Item(R.drawable.ccf_lowlicious,desserts[7])
-            , Item(R.drawable.ccf_cinnaboncinnamoncwirl,desserts[8])
-            , Item(R.drawable.ccf_godiva,desserts[9])
-            , Item(R.drawable.ccf_coconutcreampie,desserts[10])
-            , Item(R.drawable.ccf_saltedcaramel,desserts[11]))
+        Log.d("dessert name: ", desserts[0])
+        return arrayOf(Item(R.drawable.ccf_original, desserts[0].toString())
+            , Item(R.drawable.ccf_freshstrawberry,desserts[1].toString())
+            , Item(R.drawable.ccf_chocolatecaramelicious,desserts[2].toString())
+            , Item(R.drawable.ccf_pineappleupsidedown,desserts[3].toString())
+            , Item(R.drawable.ccf_celebration,desserts[4].toString())
+            , Item(R.drawable.ccf_caramelapple,desserts[5].toString())
+            , Item(R.drawable.ccf_verycherryghirardellichocolate,desserts[6].toString())
+            , Item(R.drawable.ccf_lowlicious,desserts[7].toString())
+            , Item(R.drawable.ccf_cinnaboncinnamoncwirl,desserts[8].toString())
+            , Item(R.drawable.ccf_godiva,desserts[9].toString())
+            , Item(R.drawable.ccf_coconutcreampie,desserts[10].toString())
+            , Item(R.drawable.ccf_saltedcaramel,desserts[11].toString()))
     }
 }
