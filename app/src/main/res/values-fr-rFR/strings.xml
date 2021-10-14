@@ -6,8 +6,8 @@
     <string name="displayTitle">Présentoir à Desserts</string>
     <string-array name="dessert_names">
         <item>Originale</item>
-        <item>Fresh Strawberry</item>
         <item>Fraise Fraîche</item>
+        <item>Gâteau au Fromage au Chocolat et au Caramel</item>
         <item>Ananas à l'envers</item>
         <item>Fête</item>
         <item>Pomme Caramel</item>

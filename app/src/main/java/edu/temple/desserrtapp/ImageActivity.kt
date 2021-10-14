@@ -42,7 +42,6 @@ class ImageActivity : AppCompatActivity() {
     // Test data
     fun generateTestData(): Array<Item> {
         val desserts = resources.getStringArray(R.array.dessert_names)
-        Log.d("dessert name: ", desserts[0])
         return arrayOf(Item(R.drawable.ccf_original, desserts[0].toString())
             , Item(R.drawable.ccf_freshstrawberry,desserts[1].toString())
             , Item(R.drawable.ccf_chocolatecaramelicious,desserts[2].toString())
