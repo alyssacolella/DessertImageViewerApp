@@ -23,15 +23,10 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.selectionContainer, SelectionFragment.newInstance(items))
             .commit()
 
-        ViewModelProvider(this)
-            .get(DessertViewModel::class.java)
-            .getDessert()
-            .observe(this) {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.displayContainer, DisplayFragment())
-                    .addToBackStack(null)
-                    .commit()
-            }
+        if(supportFragmentManager.findFragmentById(R.id.displayContainer) == null)
+            supportFragmentManager.beginTransaction()
+                .add(R.id.displayContainer, DisplayFragment())
+                .commit()
 
         //val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
@@ -41,17 +36,17 @@ class MainActivity : AppCompatActivity() {
         // and then passed to adapter
         // This allows the onClick() callback
         // to have access to the activity's members
-        val onClickListener = View.OnClickListener {
-            val itemPosition = recyclerView.getChildAdapterPosition(it)
+//        val onClickListener = View.OnClickListener {
+//            val itemPosition = recyclerView.getChildAdapterPosition(it)
+//
+//            val intent = Intent(this, DisplayActivity::class.java)
+//            intent.putExtra("dessertName", items[itemPosition].description)
+//            intent.putExtra("dessertImage", items[itemPosition].resourceId)
+//
+//            startActivity(intent)
+//        }
 
-            val intent = Intent(this, DisplayActivity::class.java)
-            intent.putExtra("dessertName", items[itemPosition].description)
-            intent.putExtra("dessertImage", items[itemPosition].resourceId)
-
-            startActivity(intent)
-        }
-
-        recyclerView.adapter = ImageAdapter(items, onClickListener)
+        //recyclerView.adapter = ImageAdapter(items, onClickListener)
     }
 
     // Test data

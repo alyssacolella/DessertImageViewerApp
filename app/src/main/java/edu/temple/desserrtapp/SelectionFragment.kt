@@ -18,11 +18,10 @@ class SelectionFragment : Fragment() {
 
     private lateinit var items: Array<Item>
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            items = it.getArray<Item>(ARG_PARAM1)!!
+            items = (it.get(ARG_PARAM1) as Array<Item>?)!!
 
         }
     }
@@ -34,17 +33,21 @@ class SelectionFragment : Fragment() {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_selection, container, false)
 
-        val recyclerView  = layout.findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = layout.findViewById<RecyclerView>(R.id.recyclerView)
 
         recyclerView.layoutManager = GridLayoutManager(context, 3)
-        recyclerView.adapter = ImageAdapter(items)
+
 
         val dessertViewModel = ViewModelProvider(requireActivity())
             .get(DessertViewModel::class.java)
 
-        recyclerView.setOnClickListener {
-            dessertViewModel.setSelectedDessertImage()
+        val onClickListener = View.OnClickListener {
+            val itemPosition = recyclerView.getChildAdapterPosition(it)
+            dessertViewModel.setSelectedDessertDescription(items[itemPosition].description)
+            dessertViewModel.setSelectedDessertImage(items[itemPosition].resourceId)
         }
+
+        recyclerView.adapter = ImageAdapter(items, onClickListener)
 
         return layout
     }
@@ -62,7 +65,7 @@ class SelectionFragment : Fragment() {
         fun newInstance(param1: Array<Item>) =
             SelectionFragment().apply {
                 arguments = Bundle().apply {
-                    putArray<Item>(ARG_PARAM1, param1)
+                    putArray(ARG_PARAM1, param1)
 
                 }
             }
