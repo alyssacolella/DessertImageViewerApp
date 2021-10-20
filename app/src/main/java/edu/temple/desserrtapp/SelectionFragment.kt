@@ -42,8 +42,9 @@ class SelectionFragment : Fragment() {
 
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
-            dessertViewModel.setSelectedDessertDescription(items[itemPosition].description)
-            dessertViewModel.setSelectedDessertImage(items[itemPosition].resourceId)
+            dessertViewModel.setSelectedDessert(items[itemPosition])
+//            dessertViewModel.setSelectedDessertDescription(items[itemPosition].description)
+//            dessertViewModel.setSelectedDessertImage(items[itemPosition].resourceId)
         }
 
         recyclerView.adapter = ImageAdapter(items, onClickListener)
