@@ -3,12 +3,11 @@ package edu.temple.desserrtapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class ImageActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +16,9 @@ class ImageActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.selectorTitle)
 
         val items = generateTestData()
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.selectionContainer, SelectionFragment.newInstance(items))
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 

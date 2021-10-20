@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/DessertAppIcon_background.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_display.xml" value="0.2948717948717949" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_display.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_selection.xml" value="0.2328125" />
       </map>
     </option>
   </component>
