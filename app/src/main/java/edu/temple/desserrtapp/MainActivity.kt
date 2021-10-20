@@ -21,12 +21,13 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.selectionContainer, SelectionFragment.newInstance(items))
+            .add(R.id.displayContainer, DisplayFragment())
             .commit()
 
-        if(supportFragmentManager.findFragmentById(R.id.displayContainer) == null)
-            supportFragmentManager.beginTransaction()
-                .add(R.id.displayContainer, DisplayFragment())
-                .commit()
+//        if(supportFragmentManager.findFragmentById(R.id.displayContainer) == null)
+//            supportFragmentManager.beginTransaction()
+//                .add(R.id.displayContainer, DisplayFragment())
+//                .commit()
 
         //val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
