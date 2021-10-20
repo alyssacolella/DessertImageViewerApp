@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.AdapterView
 
 
-
 private const val ARG_PARAM1 = "param1"
 
 class SelectionFragment : Fragment() {
@@ -21,7 +20,7 @@ class SelectionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            items = (it.get(ARG_PARAM1) as Array<Item>?)!!
+            items = (it.getParcelableArray(ARG_PARAM1) as Array<Item>)
 
         }
     }
@@ -53,19 +52,11 @@ class SelectionFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1
-         * @return A new instance of fragment SelectionFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+
         fun newInstance(param1: Array<Item>) =
             SelectionFragment().apply {
                 arguments = Bundle().apply {
-                    putArray(ARG_PARAM1, param1)
+                    putParcelableArray(ARG_PARAM1, param1)
 
                 }
             }

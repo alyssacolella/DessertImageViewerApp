@@ -23,17 +23,16 @@ class DisplayFragment : Fragment() {
         ViewModelProvider(requireActivity())
             .get(DessertViewModel::class.java)
             .getDessert()
-            .observe(requireActivity(),{
-                updateDisplay()
-            })
+            .observe(requireActivity()) {
+                updateDisplay(it)
+            }
+
+        return layout
 
     }
 
-    private fun updateDisplay(description: String, image: Int){
-        view?.findViewById<TextView>(R.id.textView)?.text = description
-        view?.findViewById<ImageView>(R.id.imageView)?.setImageResource(image)
+    private fun updateDisplay(item: Item){
+        view?.findViewById<TextView>(R.id.textView)?.text = item.description
+        view?.findViewById<ImageView>(R.id.imageView)?.setImageResource(item.resourceId)
     }
-
-
-
 }

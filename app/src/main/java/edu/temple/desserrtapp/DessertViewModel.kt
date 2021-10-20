@@ -13,11 +13,15 @@ class DessertViewModel: ViewModel() {
         return dessert
     }
 
-    fun setSelectedDessertImage(selectedDessert: Item){
-        this.dessert.value = selectedDessert.resourceId
+    fun setSelectedDessert(selectedDessert: Item){
+        this.dessert.value = selectedDessert
     }
 
-    fun setSelectedDessertDescription(selectedDessert: Item){
-        this.dessert.value = selectedDessert.description
-    }
+//    fun setSelectedDessertImage(selectedDessert: Item){
+//        this.dessert.value = selectedDessert.resourceId
+//    }
+
+//    fun setSelectedDessertDescription(selectedDessert: Item){
+//        this.dessert.value = selectedDessert.description
+//    }
 }
