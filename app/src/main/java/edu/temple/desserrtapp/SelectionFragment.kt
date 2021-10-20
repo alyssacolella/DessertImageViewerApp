@@ -21,7 +21,6 @@ class SelectionFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             items = (it.getParcelableArray(ARG_PARAM1) as Array<Item>)
-
         }
     }
 
@@ -43,8 +42,6 @@ class SelectionFragment : Fragment() {
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
             dessertViewModel.setSelectedDessert(items[itemPosition])
-//            dessertViewModel.setSelectedDessertDescription(items[itemPosition].description)
-//            dessertViewModel.setSelectedDessertImage(items[itemPosition].resourceId)
         }
 
         recyclerView.adapter = ImageAdapter(items, onClickListener)

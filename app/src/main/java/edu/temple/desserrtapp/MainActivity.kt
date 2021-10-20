@@ -1,12 +1,7 @@
 package edu.temple.desserrtapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,31 +18,6 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.selectionContainer, SelectionFragment.newInstance(items))
             .add(R.id.displayContainer, DisplayFragment())
             .commit()
-
-//        if(supportFragmentManager.findFragmentById(R.id.displayContainer) == null)
-//            supportFragmentManager.beginTransaction()
-//                .add(R.id.displayContainer, DisplayFragment())
-//                .commit()
-
-        //val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
-        //recyclerView.layoutManager = GridLayoutManager(this, 3)
-
-        // View.OnClickListener is created in the activity
-        // and then passed to adapter
-        // This allows the onClick() callback
-        // to have access to the activity's members
-//        val onClickListener = View.OnClickListener {
-//            val itemPosition = recyclerView.getChildAdapterPosition(it)
-//
-//            val intent = Intent(this, DisplayActivity::class.java)
-//            intent.putExtra("dessertName", items[itemPosition].description)
-//            intent.putExtra("dessertImage", items[itemPosition].resourceId)
-//
-//            startActivity(intent)
-//        }
-
-        //recyclerView.adapter = ImageAdapter(items, onClickListener)
     }
 
     // Test data

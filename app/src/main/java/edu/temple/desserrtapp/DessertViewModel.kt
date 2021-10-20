@@ -16,12 +16,4 @@ class DessertViewModel: ViewModel() {
     fun setSelectedDessert(selectedDessert: Item){
         this.dessert.value = selectedDessert
     }
-
-//    fun setSelectedDessertImage(selectedDessert: Item){
-//        this.dessert.value = selectedDessert.resourceId
-//    }
-
-//    fun setSelectedDessertDescription(selectedDessert: Item){
-//        this.dessert.value = selectedDessert.description
-//    }
 }
