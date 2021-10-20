@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +21,17 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.selectionContainer, SelectionFragment.newInstance(items))
+            .commit()
+
+        ViewModelProvider(this)
+            .get(DessertViewModel::class.java)
+            .getDessert()
+            .observe(this) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.displayContainer, DisplayFragment())
+                    .addToBackStack(null)
+                    .commit()
+            }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
