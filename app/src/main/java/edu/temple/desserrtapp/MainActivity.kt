@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
                     .commit()
             }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        //val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        //recyclerView.layoutManager = GridLayoutManager(this, 3)
 
         // View.OnClickListener is created in the activity
         // and then passed to adapter

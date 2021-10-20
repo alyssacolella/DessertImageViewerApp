@@ -7,6 +7,7 @@
     tools:context=".SelectionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="341dp"
         android:layout_height="438dp"
         app:layout_constraintBottom_toBottomOf="parent"

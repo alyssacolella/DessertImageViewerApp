@@ -5,19 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import android.widget.AdapterView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+
 private const val ARG_PARAM1 = "param1"
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SelectionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SelectionFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private lateinit var items: Array<Item>
 
 
@@ -34,7 +32,21 @@ class SelectionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_selection, container, false)
+        val layout = inflater.inflate(R.layout.fragment_selection, container, false)
+
+        val recyclerView  = layout.findViewById<RecyclerView>(R.id.recyclerView)
+
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        recyclerView.adapter = ImageAdapter(items)
+
+        val dessertViewModel = ViewModelProvider(requireActivity())
+            .get(DessertViewModel::class.java)
+
+        recyclerView.setOnClickListener {
+            dessertViewModel.setSelectedDessertImage()
+        }
+
+        return layout
     }
 
     companion object {
